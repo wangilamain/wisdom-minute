@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-3">
+            <h8>{{current_user.username}}</h8>
+        </div>
+        <div class="col-sm-6 row justify-content-center">
+            <div class="card">
+                <img src="{{url_for('static',filename='images/user.png')}}"  class="img-thumbnail profile-image">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            {{current_user.email}}
+        </div>
+    </div>
+    <h3 class="text-center">My Pitches</h3> <hr>
+    <div class="row">
+        {{macro.display_pitches(pitches)}}
+    </div>
+</div>
+{% endblock %}
