@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-6">
+            <form action="" method="POST" class="form-horizontal">
+                <h3>New pitch</h3>
+                <div class="form-group">
+                    {{form.csrf_token}}
+                    {{form.title.label}}
+                    {{form.title(class='form-control',placeholder='Pitch title')}}
+                </div>
+                <div class="form-group">
+                    {{form.category.label}}
+                    {{form.category(class='form-control')}}
+                </div>
+
+                <div class="form-group">
+                    {{form.content.label}}
+                    {{form.content(class='form-control',placeholder='Pitch Description/Content')}}
+                    </div>
+                    {{form.submit(class='btn btn-info')}}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
