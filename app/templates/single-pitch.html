@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-7 p-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title h3">{{pitch.title}}</div>
+                    <div class="card-subtitle h5">
+                        <a href="#" class="card-link"> @{{pitch.user.username}}</a>
+                    </div>
+                    <hr>
+                    <div class="card-text">
+                        {{pitch.content}}
+                    </div>
+                    <div class="footer btn-group">
+                        <button class="btn btn-sm btn-success">Like
+                            <span class="badge badge-light">2</span>
+                        </button>
+                        <button class="btn btn-sm btn-info">Dislike
+                            <span class="badge badge-light">2</span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-5">
+            <h3> Comments</h3>
+            <form action="" method="POST" class="form-inline">
+                <div class="form-group">
+                    {{commentform.csrf_token}}
+                    {{commentform.comment(class="form-control",placeholder="Comment...")}}
+                    {{commentform.submit(class="btn btn-info mx-1")}}
+                </div>
+            </form>
+
+            <hr>
+            <div class="row">
+                {{macro.display_comments(comments)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
